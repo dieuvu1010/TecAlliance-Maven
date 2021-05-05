@@ -30,7 +30,7 @@ import org.junit.runners.Parameterized.Parameter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.openqa.selenium.JavascriptExecutor;
 
 @RunWith(Parameterized.class)
 public class BrowserStackJBehaveRunner {
@@ -68,6 +68,8 @@ public class BrowserStackJBehaveRunner {
         // Set these values in your capabilities
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browserstack.local", "true");
+        caps.setCapability("browserName", "chrome");
+        caps.setCapability("os_version", "10.0");
 
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
@@ -119,5 +121,9 @@ public class BrowserStackJBehaveRunner {
 
         List<String> storyPaths = Arrays.asList(System.getProperty("stories"));
         storyEmbedder.runStoriesAsPaths(storyPaths);
+    }
+    public static void markTestStatus(String status, String reason, WebDriver driver) {  // the same WebDriver instance should be passed that is being used to run the test in the calling funtion
+	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \""+status+"\", \"reason\": \""+reason+"\"}}");
     }
 }
