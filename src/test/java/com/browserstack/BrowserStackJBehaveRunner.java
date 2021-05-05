@@ -67,9 +67,10 @@ public class BrowserStackJBehaveRunner {
 
         // Set these values in your capabilities
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browserstack.local", "true");
-        caps.setCapability("browserName", "chrome");
-        caps.setCapability("os_version", "10.0");
+        caps.setCapability("os", "Windows");
+        caps.setCapability("os_version", "10");
+        caps.setCapability("browser", "Chrome");
+        caps.setCapability("browser_version", "latest");
 
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
