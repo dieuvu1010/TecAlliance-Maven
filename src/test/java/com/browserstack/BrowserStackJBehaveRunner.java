@@ -65,6 +65,10 @@ public class BrowserStackJBehaveRunner {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
+        // Set these values in your capabilities
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("browserstack.local", "true");
+
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {

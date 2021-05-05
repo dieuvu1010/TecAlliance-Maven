@@ -1,7 +1,7 @@
 {
   "server": "hub-cloud.browserstack.com",
-  "user": "dieugmail_Zu1VzP",
-  "key": "giCqRyHZyn4hhWh5dvJN",
+  "user": "BROWSERSTACK_USERNAME",
+  "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
     "build": "jbehave-browserstack",

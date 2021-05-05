@@ -1,5 +1,5 @@
 Scenario: Google's Search Functionality
 
-When I type query as "BrowserStack"
+When I type query as "JBehave"
 Then I submit
-Then I should see title "BrowserStack - Google Search"
+Then I should see title "JBehave - Google Search"
